@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        input, select {
+            padding: 10px;
+            font-size: 18px;
+            margin: 10px;
+            width: 120px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #5b9bd5;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        #result {
+            font-size: 22px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="number" id="num1">
+
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+
+    <input type="number" id="num2">
+
+    = <span id="result">___</span>
+
+    <br><br>
+
+    <button onclick="calculate()">CALCULATE</button>
+
+    <script>
+        function calculate() {
+
+            let n1 = parseFloat(document.getElementById("num1").value);
+            let n2 = parseFloat(document.getElementById("num2").value);
+            let op = document.getElementById("operator").value;
+            let result;
+
+            if (op === "+")
+                result = n1 + n2;
+            else if (op === "-")
+                result = n1 - n2;
+            else if (op === "*")
+                result = n1 * n2;
+            else if (op === "/")
+                result = n2 !== 0 ? n1 / n2 : "Cannot divide by 0";
+
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+
+</body>
+</html>
