@@ -1,79 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Simple Calculator</title>
+<title>Linear Guide Lookup</title>
 
-    <style>
-        body {
-            font-family: Arial;
-            text-align: center;
-            margin-top: 100px;
-        }
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 
-        input, select {
-            padding: 10px;
-            font-size: 18px;
-            margin: 10px;
-            width: 120px;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: #5b9bd5;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-
-        #result {
-            font-size: 22px;
-            font-weight: bold;
-            margin-left: 10px;
-        }
-    </style>
+<style>
+body{
+    font-family: Arial;
+    text-align:center;
+    margin-top:60px;
+}
+select,button{
+    padding:10px;
+    margin:10px;
+}
+</style>
 </head>
 
 <body>
 
-    <input type="number" id="num1">
+<h2>Series & Size Lookup</h2>
 
-    <select id="operator">
-        <option value="+">+</option>
-        <option value="-">-</option>
-        <option value="*">*</option>
-        <option value="/">/</option>
-    </select>
+<select id="series"></select>
+<select id="size"></select>
 
-    <input type="number" id="num2">
+<br>
 
-    = <span id="result">___</span>
+<button onclick="findValues()">FIND VALUES</button>
 
-    <br><br>
+<h3>
+Pitch: <span id="pitch">---</span><br>
+Min E-Value: <span id="evalue">---</span>
+</h3>
 
-    <button onclick="calculate()">CALCULATE</button>
-
-    <script>
-        function calculate() {
-
-            let n1 = parseFloat(document.getElementById("num1").value);
-            let n2 = parseFloat(document.getElementById("num2").value);
-            let op = document.getElementById("operator").value;
-            let result;
-
-            if (op === "+")
-                result = n1 + n2;
-            else if (op === "-")
-                result = n1 - n2;
-            else if (op === "*")
-                result = n1 * n2;
-            else if (op === "/")
-                result = n2 !== 0 ? n1 / n2 : "Cannot divide by 0";
-
-            document.getElementById("result").innerText = result;
-        }
-    </script>
+<script src="script.js"></script>
 
 </body>
 </html>
